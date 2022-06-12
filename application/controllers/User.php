@@ -23,15 +23,18 @@ class User extends CI_Controller
 
     public function beranda()
     {
-        $data['title'] = 'Beranda';
+        $data['title'] = 'Portal Berita';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/topbar', $data); 
         $this->load->view('user/beranda', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer'); 
+        
     }
+
+   
+
 
     public function edit()
     {
