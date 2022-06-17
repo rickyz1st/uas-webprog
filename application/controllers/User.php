@@ -26,11 +26,13 @@ class User extends CI_Controller
         $data['title'] = 'Portal Berita';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $data['berita'] = $this->db->get('user_berita')->result_array();
+
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data); 
         $this->load->view('user/beranda', $data);
         $this->load->view('templates/footer'); 
-        
     }
 
    
